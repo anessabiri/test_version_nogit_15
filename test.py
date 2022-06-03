@@ -1,0 +1,47 @@
+import time
+import os
+
+os.makedirs('/home/sabri/Documents/Videtics/test_data_versioning/dataset1/all')
+print(" Created ... ")
+os.system("curl -u" +" anessabiri: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" + " https://api.github.com/user/repos -d " + '\'{"name":"dataset21"}\'')
+print('done in github')
+current_directory = os.getcwd()
+os.chdir('/home/sabri/Documents/Videtics/test_data_versioning/dataset1')
+os.system("git init")
+os.system("echo \"dataset14\" >> README.md")
+os.system("git add README.md")
+os.system("git commit -m \"first commit\"")
+os.system("git remote add origin https://github.com/anessabiri/dataset21.git")
+os.system("git remote set-url origin https://anessabiri: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@github.com/anessabiri/datasetfinal6.git")
+os.system("git branch -M main")
+os.system("git push -u origin main")
+print("pushed succefully...")
+os.chdir(current_directory)
+exit()
+if False:
+    current_directory = os.getcwd()
+    os.chdir('/home/sabri/Documents/Videtics/test_data_versioning/dataset1')
+    """os.system("dvc init")
+    os.system("dvc remote add --default ssh-storage ssh://videtics@bp.videtics.net/raid/remote_storage2/data")
+    os.system("dvc remote modify ssh-storage port 32900")
+    os.system("dvc remote modify ssh-storage ask_password true")
+    os.system("dvc add all")"""
+    version = 0.3
+    print("adding to git ... ")
+    os.system("git add --all")
+    os.system("git commit -m \"First commit version version = " + str(version)+ "\"")
+    os.system("git tag -a " +"\""+ str(version) +"\" "+  "-m \"first tag\"")
+    os.system("git push ")
+    os.system("dvc push")
+    os.chdir(current_directory)
+else :
+    current_directory = os.getcwd()
+    os.chdir('/home/sabri/Documents/Videtics/test_data_versioning/dataset1')
+    os.system("dvc add all")
+    os.system("git add --all")
+    version = 2.0
+    os.system("git commit -m \"First commit version version = " + str(version)+ "\"")
+    os.system("git tag -a " +"\""+ str(version) +"\" "+  "-m \"first tag\"")
+    os.system("git push ")
+    os.system("dvc push")
+    os.chdir(current_directory)

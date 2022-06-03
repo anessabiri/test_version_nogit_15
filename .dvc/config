@@ -1,0 +1,7 @@
+[core]
+    remote = ssh-storage
+[cache]
+    shared = group
+['remote "ssh-storage"']
+    url = ssh://videtics@bp.videtics.net/raid/remote_storage2/data
+    port = 32900

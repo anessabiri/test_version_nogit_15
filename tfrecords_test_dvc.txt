@@ -1,0 +1,11 @@
+kitti_config {
+  root_directory_path: "/gitlab/Dvc_server1/all/"
+  image_dir_name: "img/"
+  label_dir_name: "ann/"
+  image_extension: ".jpg"
+  partition_mode: "random"
+  num_partitions: 2
+  val_split: 5
+  num_shards: 5
+}
+image_directory_path: "/gitlab/Dvc_server1/all/"

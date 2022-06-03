@@ -1,0 +1,26 @@
+﻿version: '3.5'
+services:
+  dvc-server:
+    build: .
+    ports:
+        - 4000:4000
+    volumes:
+      - /home/videtics/.tao_mounts.json:/root/.tao_mounts.json
+      - /home/videtics/tao_experiments:/home/videtics/tao_experiments
+      - /raid/dataset/dataset_for_tao:/raid/dataset/dataset_for_tao
+      - /home/videtics/.docker/config.json:/root/.docker/config.json
+      - /gitlab:/gitlab/
+      - /raid/dataset:/raid/dataset/
+      - /home/videtics/tao_experiments:/workspace/tao_experiments
+      - /dataset:/dataset/
+      - /gitlab/relay-cvat-server/downloads2/:/workspace/downloads/
+      - /gitlab/.cert/:/workspace/.cert/
+      - /gitlab/dvc_server/:/workspace/dvc_server/
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+    networks:
+          mlops-net:
+            ipv4_address: 10.0.2.111
+networks:
+    mlops-net:
+      external: True
